@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="main.css">
+    
+    <!-- Compiled and minified CSS -->
+    <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css"> -->
+
+  
+            
+</head>
+<body>
+  <div class="container">
+  <div class="navbar">
+    <a href="#" class="brand-logo">ST-Booking Appointment System</a>
+    <ul id="nav-mobile" class="right">
+      <li id="loginli"><a  href="#modal2">Login</a></li>
+      <li  id="signupli"><a " href="#modal1">Signup</a></li>
+      <li  id="logoutli"><button type="submit" onclick="logout()">Logout</button></li>
+    </ul>
+</div>
+    <!--Signup Modal -->
+  <div id="modal1" class="modal">
+    <div class="modal-content">
+      <h1>Signup</h1>
+      <form autocomplete="off" onsubmit="signup(event)">
+        <input type="email" id="signupEmail" placeholder="Enter Email" />
+        <input type="password" id="signupPassword" placeholder="Enter Password" />
+        <select name="languagess" id="roles">
+          <!-- <option value="select">Select Role</option> -->
+          <option value="student">Student</option>
+          <option value="teacher">Teacher</option>
+          <option value="admin">Admin</option>
+        </select>
+        <button class="btn waves-effect #fbc02d yellow darken-2" type="submit">SignUp</button>   
+      </form>
+      <!-- <button -->
+        <a href="#" onclick="loginShow()">Back To Login</a>
+        <!-- <button type="submit">Login</button> -->
+        
+    </div>
+  </div>
+         
+    <!--login Modal -->
+  <div id="modal2" class="modal">
+    <div class="modal-content">
+      <h1>Login</h1>
+      <form autocomplete="off" onsubmit="login(event)">
+        <input type="email" id="loginEmail" placeholder="Enter Email" />
+        <input type="password" id="loginPassword" placeholder="Enter Password" />
+        <button class="btn waves-effect #fbc02d yellow darken-2" type="submit">Login</button>   
+      </form>
+      <!-- <button class="btn waves-effect blue" onclick="loginWithGoogle()">Login with google</button> -->
+      <a href="#" onclick="signupShow()">Don't Have An Account</a>
+    </div>
+  </div>
+  
+ <!-- my profile  -->
+ <div class="center" id="center">
+  <h1>Your Account Details</h1>
+  <div class="userDetails"></div>
+</div>
+       
+
+<div class="dashboards">
+  <!-- <button id="getDash" onclick="findDash()">Get Dashboard</button> -->
+  <div class="tdash">
+    <!-- <h1>Dashboard</h1> -->
+    <button id="tec"><a href="name.html">Teacher Dashboard</a> </button>
+  </div>
+  
+  <div class="sdash">
+    <!-- <h1>Dashboard</h1> -->
+    <button id="std"><a href="student.html">Student Dashboard</a> </button>
+  </div>
+  <div class="adash">
+    <!-- <h1>Dashboard</h1> -->
+    <button id="std"><a href="admin.html">Admin Dashboard</a> </button>
+  </div>
+</div>
+
+</div>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>  
+<script>
+      document.addEventListener('DOMContentLoaded', function() {
+    var elems = document.querySelectorAll('.modal');
+    var instances = M.Modal.init(elems);
+  });
+</script>  
+<!-- The core Firebase JS SDK is always required and must be listed first -->
+<script src="https://www.gstatic.com/firebasejs/8.2.9/firebase-app.js"></script>
+<script src="https://www.gstatic.com/firebasejs/8.2.9/firebase-auth.js"></script>
+<script src="https://www.gstatic.com/firebasejs/8.2.9/firebase-firestore.js"></script>
+<script src="https://www.gstatic.com/firebasejs/8.2.9/firebase-storage.js"></script>
+
+<script>
+  // Your web app's Firebase configuration
+  const firebaseConfig = {
+    apiKey: "AIzaSyBTg15SjodkvUnJnSDz_HQvkMDagAqIATM",
+    authDomain: "job-portal-924d6.firebaseapp.com",
+    projectId: "job-portal-924d6",
+    storageBucket: "job-portal-924d6.appspot.com",
+    messagingSenderId: "1025120006835",
+    appId: "1:1025120006835:web:215101f296df93f176b6c6"
+  };
+  // Initialize Firebase
+  firebase.initializeApp(firebaseConfig);
+</script>
+<script src="./scripts/auth.js"></script>
+<script src="./scripts/firestore-db.js" ></script>
+</body>
+</html>

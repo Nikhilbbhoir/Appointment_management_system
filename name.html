@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="teacher.css">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script> 
+    <title>Teacher's Dashboard</title>
+    
+    <!-- Compiled and minified CSS -->
+    <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css"> -->
+
+  
+            
+</head>
+<body>
+  <div class="container">
+    <div class="navbar">
+      <a href="#" class="brand-logo">ST-Booking Appointment System</a>
+      <ul id="nav-mobile" class="right">
+        <li id="loginli"><a  href="#modal2">Login</a></li>
+        <li  id="signupli"><a " href="#modal1">Signup</a></li>
+        <li  id="logoutli"><button type="submit" onclick="logout()">Logout</button></li>
+      </ul>
+    </div>
+    <div class="buttons">
+        
+      <button type="submit" onclick="myProfileShow()" ondblclick="myProfileHide()">My Profile</button>
+      <button type="submit" onclick="scheduleAPTShow()" ondblclick="scheduleAPTHide()">Schedule Appointment</button>
+      <button type="submit" onclick="createAPTShow()">Created Appointment</button>
+      <button type="submit" onclick="reqstShow()">Request List</button>
+      <button type="submit" onclick="viewMSGShow()">View Messages</button>
+      <button type="submit" onclick="allAPTShow()">All Appointments</button>
+      <button type="submit" onclick="logout()">Logout</button>
+    </div>
+    
+    <div class="system">
+     
+      <!-- my profile  -->
+      <div class="center" id="profile">
+        <h1>Your Account Details</h1>
+        <div class="userDetails"></div>
+  <!--edit profile -->
+  <div id="modal3" class="modal">
+    <div class="modal-content">
+      <h4>Edit your details</h4>
+      <form autocomplete="off" id="editProfile" onsubmit="updateUserProfile(event)">
+        <input type="email" name="profileEmail" class="forHide" disabled placeholder="Email" />
+        <input type="text" name="name" placeholder="Name" />
+        <input type="text" name="phoneno" placeholder="Phone No." />
+        <input type="text" name="department" placeholder="Department" />
+        <input type="text" name="subject" placeholder="Subject" />
+        <input type="text" name="rollnum" placeholder="ID" />
+        <input type="text" name="role" disabled class="forHide"  placeholder="Role" />
+
+        <button class="btn waves-effect #fbc02d yellow darken-2" type="submit">Submit</button>   
+      </form>
+    </div>
+  </div>
+
+      </div>
+
+
+    <!-- SCHEDULE APPOINTMENT  -->
+    <div class="schedule" id="editApt">
+      <!-- <form class="add" id="editApt"> -->
+      <h2>Schedule Appointment</h2>
+      <div class="sgroup">
+        <label for="aptid">Appointment ID: </label>
+        <input type="number" id="aptid" placeholder="Enter ID ">
+      </div>
+      
+      <div class="sgroup dateInfo">
+        <label for="adate">Date: </label>
+        <input type="date" id="adate" placeholder="date">
+      </div>
+      
+      <div class="sgroup">
+        <label for="tf">Time From: </label>
+        <input type="time" id="tf" placeholder="timeFrom">
+      </div>  
+      
+      <div class="sgroup">
+        <label for="tt">Time To: </label>
+        <input type="time" id="tt" placeholder="timeTo">
+      </div>
+      <div class="sgroup">
+        <button id="ccreate" type="submit" onclick="createAppointmentCollection()">Submit</button>
+        <!-- update will be disabled when scheduling -->
+        <!-- <button id="cupdate" type="submit" disabled="disabled">Update</button> -->
+      </div>
+<!-- </form> -->
+    </div>
+
+      
+          <!-- Created Appointments  -->
+
+    <div class="Cschedule" id="CSchedule">
+      <h2>Created Appointment</h2>
+      <table id="capt">
+        <thead>
+              <th>No.</th>
+              <th>ID</th>
+              <th>Date</th>
+              <th>Time From</th>
+              <th>Time To</th>
+              <th>Edit</th>
+              <th>Delete</th>
+        </thead>
+        <tbody class="apts">
+            <!-- <tr>
+              <td>1</td>
+              <td>123</td>
+              <td >2024-01-23</td>
+              <td id="ty">08:08:10</td>
+              <td>09:08:10</td>
+              <td><button type="submit">Delete</button></td>
+              <td><button type="submit">Edit</button></td>
+            </tr>
+            <tr>
+              <td>2</td>
+              <td>1234</td>
+              <td>2024-01-22</td>
+              <td>18:18:10</td>
+              <td>19:18:10</td>
+                <td><button type="submit">Delete</button></td>
+                <td><button type="submit">Edit</button></td>
+            </tr> -->
+        </tbody>
+    </table>
+    </div>
+
+            <!-- Reuests  -->
+            <div class="requests" id="reqsList">
+              <h2>Requests List</h2>
+              
+  <!-- Get Request  -->
+
+  <div class="getRequest">
+    <h2><center>Note: To Confirm Operation Enter Student Email</center></h2>
+        <div class="reqlistwithbtn">
+          <input type="email" id="email" placeholder="Student email" />
+          <input type="email" id="suid" disabled placeholder="Student UID" />
+              <button class="editApts" onclick="rApprove()">Approve</button>
+              <button class="editApts" onclick="rReject()">Reject</button>
+        </div>
+
+    <input type="email" disabled id="remail" placeholder="email" />
+    <input type="text" disabled id="rid" placeholder="ID" />
+    <input type="text" disabled id="ruid" placeholder="UID" />
+    <input type="date" disabled id="radate" placeholder="Date" />
+    <input type="time" disabled id="rtf" placeholder="timeFrom" />
+    <input type="time" disabled id="rtt" placeholder="timeTo" />
+  </div>
+
+              <table id="approvals">
+                <thead>
+                      <th>Student Email</th>
+                      <th>ID</th>
+                      <th>Date</th>
+                      <th>Time From</th>
+                      <th>Time To</th>
+                      <th>Status</th>
+                      <th>Confirm</th>
+                      <!-- <th>Student Email</th> -->
+                      <!-- <th>Approve / Reject</th> -->
+                      <!-- <th>Department</th> -->
+                </thead>
+                <tbody id="reqList">
+                   
+                </tbody>
+            </table>
+            </div>
+        
+                    <!-- View Messages  -->
+            <div class="messages" id="Messages">
+             <h2>Messages</h2>
+              <table id="msg">
+                <thead>
+                  <th>Name</th>
+                  <th>Email</th>
+                  <!-- <th>ID</th> -->
+                  <th>Message</th>
+                </thead>
+        
+                <tbody class="vmsg">
+                  <tr>
+                    <td>ABC</td>
+                    <td>123</td>
+                    <td>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Officiis, tempore?</td>
+                  </tr>
+        
+                  <tr>
+                    <td>RST</td>
+                    <td>456</td>
+                    <td>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Officiis, tempore?</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            
+            
+            <!-- ALL APPOINTMENTS  -->
+          <div class="appointments" id="allAPTs">
+              <h2>All Appointments</h2>
+              <table id="allappointments">
+                <thead>
+                      <th>Email</th>
+                      <th>ID</th>
+                      <th>Date</th>
+                      <th>Time From</th>
+                      <th>Time To</th>
+                </thead>
+                <tbody class="Aapts">
+                    <!-- <tr>
+                      <td>ABC</td>
+                        <td>2024-01-23</td>
+                        <td>08:08:10</td>
+                        <td>09:08:10</td>
+                        <td><button type="submit">Delete</button></td>
+                        <td><button type="submit">Edit</button></td>
+                    </tr>
+                    <tr>
+                      <td>RST</td>
+                      <td>2024-01-22</td>
+                      <td>18:18:10</td>
+                      <td>19:18:10</td>
+                      <td><button type="submit">Delete</button></td>
+                      <td><button type="submit">Edit</button></td>
+                    </tr> -->
+                  </tbody>
+                </table>
+              </div>
+
+              
+              </div>
+            </div>
+   
+<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script> 
+
+<script>
+      document.addEventListener('DOMContentLoaded', function() {
+    var elems = document.querySelectorAll('.modal');
+    var instances = M.Modal.init(elems);
+  });
+</script>  
+<!-- The core Firebase JS SDK is always required and must be listed first -->
+<script src="https://www.gstatic.com/firebasejs/8.2.9/firebase-app.js"></script>
+<script src="https://www.gstatic.com/firebasejs/8.2.9/firebase-auth.js"></script>
+<script src="https://www.gstatic.com/firebasejs/8.2.9/firebase-firestore.js"></script>
+<script src="https://www.gstatic.com/firebasejs/8.2.9/firebase-storage.js"></script>
+
+<script>
+  // Your web app's Firebase configuration
+  const firebaseConfig = {
+    apiKey: "AIzaSyBTg15SjodkvUnJnSDz_HQvkMDagAqIATM",
+    authDomain: "job-portal-924d6.firebaseapp.com",
+    projectId: "job-portal-924d6",
+    storageBucket: "job-portal-924d6.appspot.com",
+    messagingSenderId: "1025120006835",
+    appId: "1:1025120006835:web:215101f296df93f176b6c6"
+  };
+  // Initialize Firebase
+  firebase.initializeApp(firebaseConfig);
+</script>
+<script src="./scripts/auth.js"></script>
+<script src="./scripts/firestore-db.js" ></script>
+</body>
+</html>

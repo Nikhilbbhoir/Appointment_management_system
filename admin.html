@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <link rel="stylesheet" href="student.css">
+    <title>Admin Dashboard</title>
+    
+    <!-- Compiled and minified CSS -->
+    <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css"> -->
+
+  
+            
+</head>
+<body>
+  <div class="container">
+    <div class="navbar">
+          <a href="#" class="brand-logo">ST-Booking Appointment System</a>
+          <ul id="nav-mobile" class="right">
+            <li id="loginli"><a  href="#modal2">Login</a></li>
+            <li  id="signupli"><a " href="#modal1">Signup</a></li>
+            <li  id="logoutli"><button type="submit" onclick="logout()">Logout</button></li>
+          </ul>
+      </div>
+
+      <div class="buttons">
+        
+        <button type="submit" onclick="myCenterShow()" ondblclick="myCenterHide()">My Profile</button>
+        <button type="submit" onclick="addTShow()">Add Teacher</button>
+        <button type="submit" onclick="tSearchShow()" ondblclick="tSearchHide()">Teacher List</button>
+        <button type="submit" onclick="getAPTShow()">Student Requests</button>
+        <button type="submit" onclick="logout()">Logout</button>
+      </div>
+
+      <div class="system">
+
+
+      <!-- my profile  -->
+      <div class="center" id="center">
+        <h1>Your Account Details</h1>
+        <div class="userDetails"></div>
+      </div>
+             
+
+    <!--edit profile -->
+  <div id="modal3" class="modal">
+    <div class="modal-content">
+      <h4>Edit your details</h4>
+      <form autocomplete="off" id="editProfile" onsubmit="updateUserProfile(event)">
+        <input type="email" name="profileEmail" placeholder="Email" disabled class="forHide"/>
+        <input type="text" name="name" placeholder="Name" />
+        <input type="text" name="phoneno" placeholder="Phone No." />
+        <input type="text" name="department" placeholder="Department" />
+        <input type="text" name="subject" placeholder="Subject" value="NA" disabled class="forHide" />
+        <input type="text" name="rollnum" placeholder="ID" />
+        <input type="text" name="role" placeholder="Role" disabled class="forHide"/>
+
+        <button class="btn waves-effect #fbc02d yellow darken-2" type="submit">Submit</button>   
+      </form>
+    </div>
+  </div>
+
+     <!-- Search Teacher  -->
+     <div class="TSearch" id="TSearch">
+        <!-- <div class="searchT">
+            <h2>Search Teacher</h2>
+            <label for="Tname">Teacher's Name</label>
+            <input type="text" placeholder="Search Teacher">
+            <button type="submit">Search </button>
+        </div> -->
+
+
+  <table id="Ttable">
+    <h2>Teachers List</h2>
+    <thead>
+      <tr>
+          <th>Name</th>
+          <th>Email</th>
+          <th>Phone</th>
+          <th>Department</th>
+          <th>Subject</th>
+          <th>ID</th>
+          <!-- <th>Role</th> -->
+      </tr>
+    </thead>
+
+    <tbody class="Ttbodyone" id="Ttbody">
+    </tbody>
+  </table>
+<!-- <div class="tbodyone"></div> -->
+</div>
+
+  
+            <!-- ALL APPOINTMENTS  -->
+            <div class="Sappointments" id="Sappointments">
+                <h2>All Appointments</h2>
+
+                  <!-- Get Appointment  -->
+    <div class="getAppointment" id="getAppointment">               
+      <input type="email" id="gemail" class="forHide" placeholder="email" />
+      <input type="text" id="gid" class="forHide" placeholder="ID" />
+      <input type="text" id="guid" class="forHide" placeholder="UID" />
+      <input type="date" id="gadate" class="forHide" placeholder="Date" />
+      <input type="time" id="gtf" class="forHide" placeholder="timeFrom" />
+      <input type="time" id="gtt" class="forHide" placeholder="timeTo" />
+
+      <!-- <button type="submit" onclick="aptpending()">Request</button> -->
+    </div>
+
+                <table id="allSappointments">
+                  <thead>
+                        <th>Email</th>
+                        <th>ID</th>
+                        <th>Date</th>
+                        <th>Time From</th>
+                        <th>Time To</th>
+                        <th>Confirm</th>
+                        <th>Get Appointment</th>
+                        <th>Status</th>
+                  </thead>
+                  <tbody class="SAapts">
+                     <!-- <tr>
+                        <td>ABC</td>
+                          <td>2024-01-23</td>
+                          <td>08:08:10</td>
+                          <td>09:08:10</td>
+                          <td><button type="submit">Delete</button></td>
+                      </tr> -->
+                    
+                    </tbody>
+                  </table>
+                </div>
+
+              
+            
+                <!-- Send a Message To Teacher  -->
+<div class="msg" id="msg">
+    <h2>Send a Message</h2>
+    <div class="msg_content">
+        <label for="sname">Student's Name </label>
+        <input id="sname" type="text" placeholder="Name">
+    </div>
+    <div class="msg_content">
+        <label for="sid">Student's ID </label>
+        <input id="sid" type="number" placeholder="Enter Student ID">
+    </div>
+    <div class="msg_content">
+        <label for="semail">Teacher's Email </label>
+        <input id="temail" type="email" placeholder="Enter Email">
+    </div>
+    <div class="msg_content">
+        <label for="suid">Teacher's UID </label>
+        <!-- after clicking the button "Confirm" will be "Confirmed" with colour change -->
+        <input id="suid" type="text" disabled placeholder="Enter Email for UID">
+        <button id="getuid" type="submit" onclick="finduserid()">Get UID</button>
+    </div>
+    <div class="msg_content">
+        <label for="smsg">Student's Message </label>
+        <input id="smsg" type="text" placeholder="Enter Message">
+    </div>
+    <div class="msg_content">
+        <button id="smsgs" type="submit">Send</button>
+    </div>
+</div>
+                
+    </div>
+            </div>
+   
+<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>  
+<script>
+      document.addEventListener('DOMContentLoaded', function() {
+    var elems = document.querySelectorAll('.modal');
+    var instances = M.Modal.init(elems);
+  });
+</script>  
+<!-- The core Firebase JS SDK is always required and must be listed first -->
+<script src="https://www.gstatic.com/firebasejs/8.2.9/firebase-app.js"></script>
+<script src="https://www.gstatic.com/firebasejs/8.2.9/firebase-auth.js"></script>
+<script src="https://www.gstatic.com/firebasejs/8.2.9/firebase-firestore.js"></script>
+<script src="https://www.gstatic.com/firebasejs/8.2.9/firebase-storage.js"></script>
+
+<script>
+  // Your web app's Firebase configuration
+  const firebaseConfig = {
+    apiKey: "AIzaSyBTg15SjodkvUnJnSDz_HQvkMDagAqIATM",
+    authDomain: "job-portal-924d6.firebaseapp.com",
+    projectId: "job-portal-924d6",
+    storageBucket: "job-portal-924d6.appspot.com",
+    messagingSenderId: "1025120006835",
+    appId: "1:1025120006835:web:215101f296df93f176b6c6"
+  };
+  // Initialize Firebase
+  firebase.initializeApp(firebaseConfig);
+</script>
+<script src="./scripts/auth.js"></script>
+<script src="./scripts/firestore-db.js" ></script>
+</body>
+</html>
