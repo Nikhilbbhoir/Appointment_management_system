@@ -214,5 +214,10 @@ Messages
 allAPTs */
 
 
-
+/* Media ueries */
+@media only screen and (max-width: 600px) {
+  .container {
+    width: fit-content;
+  }
+}
 
