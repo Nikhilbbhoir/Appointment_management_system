@@ -14,11 +14,13 @@ Backend: Firebase
 Modules:
 
 Login: Users can securely register or sign in with their credentials.
+
 Teacher Module:
 Schedule appointments for individuals or groups.
 View and manage existing appointments.
 Review requests from students to book appointments.
 View messages sent by students.
+
 Student Module:
 Browse a list of available teachers.
 Request appointments with preferred teachers and time slots.
