@@ -712,6 +712,7 @@ async function getStudentAllAptsRealtime(){
             $("td:contains('Approved')").css('backgroundColor', 'green');
                  $("td:contains('Rejected')").css('backgroundColor', 'red');
                  $("td:contains('Pending')").css('backgroundColor', 'yellow');
+                 $("td:contains('undefined')").css('color', 'cadetblue');
                  $("td:contains('undefined')").text('N.A.');
           })
       }
