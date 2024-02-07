@@ -83,7 +83,9 @@ const unsubscribe  = firebase.auth().onAuthStateChanged((user) => {
       // document.getElementById("modal2").style.display = "none"
       // document.getElementById("center").style.display = "block"
       // if(user.uid=='zynPAqm8LlabA39mYgUDyQqztm12'){
-        getuserInfoRealtime(user.uid)
+       
+        // getuserInfoRealtime(user.uid)
+        
         const curloc = window.location.href
         // console.log(curloc)
         // teacher funtions 
@@ -100,6 +102,8 @@ const unsubscribe  = firebase.auth().onAuthStateChanged((user) => {
         if (curloc == url && userName == 'teacher') {
   // do your work
   // allUserDetails()
+            
+    getuserInfoRealtime(user.uid)
   getuserAptsRealtime()
   getuserAllAptsRealtime()
   getReqRealtime()
@@ -108,11 +112,14 @@ const unsubscribe  = firebase.auth().onAuthStateChanged((user) => {
 
 if (curloc == url1 && userName == 'student') {
         // student funtions 
+    
+        getuserInfoRealtime(user.uid)
         allTeacherDetails()
         getStudentAllAptsRealtime()
         }
 if (curloc == url2) {
         // // main function 
+    
         findDash()  
 }
       // }
