@@ -393,8 +393,8 @@ async function getReqRealtime(){
                  </tr>
                  `
            $("td:contains('Approved')").css('backgroundColor', 'lightgreen');
-                 $("td:contains('Rejected')").css('backgroundColor', 'lightred');
-                 $("td:contains('Pending')").css('backgroundColor', 'lightyellow');
+                 $("td:contains('Rejected')").css('backgroundColor', 'lightyellow');
+                 $("td:contains('Pending')").css('backgroundColor', 'lightblue');
                  // $("td:contains('undefined')").text('N.A.');
            
                 //  <button class="editApts" onclick="getReq(value)" value="${info.gid}">Reject</button>
@@ -710,8 +710,8 @@ async function getStudentAllAptsRealtime(){
                  </tr>
                  `
             $("td:contains('Approved')").css('backgroundColor', 'lightgreen');
-                 $("td:contains('Rejected')").css('backgroundColor', 'lightred');
-                 $("td:contains('Pending')").css('backgroundColor', 'lightyellow');
+                 $("td:contains('Rejected')").css('backgroundColor', 'lightyellow');
+                 $("td:contains('Pending')").css('backgroundColor', 'lightblue');
                  // $("td:contains('undefined')").css('color', 'cadetblue');
                  $("td:contains('undefined')").text('N.A.');
           })
