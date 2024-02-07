@@ -125,3 +125,12 @@ h1,h2,h4{
 #center{
     display: none;
 }
+
+
+
+/* Media ueries */
+@media only screen and (max-width: 600px) {
+  .container {
+    width: fit-content;
+  }
+}
