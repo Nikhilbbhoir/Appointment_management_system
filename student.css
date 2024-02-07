@@ -179,3 +179,12 @@ h1,h2,h4,h4{
     #Sappointments{
         display: none;
      }
+
+
+
+/* Media ueries */
+@media only screen and (max-width: 600px) {
+  .container {
+    width: fit-content;
+  }
+}
