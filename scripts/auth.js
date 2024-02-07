@@ -67,7 +67,7 @@ async function login(e){
 
 function logout(){
     firebase.auth().signOut()
-    window.location.replace("main.html");
+    window.location.replace("index.html");
     // document.getElementById("loginli").style.display = "none"
       // document.getElementById("signupli").style.display = "none"
     // document.querySelector('#proimg').src= "./assets/noimage.png"
@@ -90,6 +90,10 @@ const unsubscribe  = firebase.auth().onAuthStateChanged((user) => {
         var url = 'http://127.0.0.1:5500/public/name.html';
         var url1 = 'http://127.0.0.1:5500/public/student.html';
         var url2 = 'http://127.0.0.1:5500/public/main.html';
+        
+        var url = 'https://nikhilbbhoir.github.io/Appointment_management_system/name.html';
+        var url1 = 'https://nikhilbbhoir.github.io/Appointment_management_system/student.html';
+        var url2 = 'https://nikhilbbhoir.github.io/Appointment_management_system/index.html';
         
         if (curloc == url) {
   // do your work
