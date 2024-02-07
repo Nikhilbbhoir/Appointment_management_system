@@ -132,5 +132,6 @@ h1,h2,h4{
 @media only screen and (max-width: 600px) {
   .container {
     width: fit-content;
+      margin: auto;
   }
 }
