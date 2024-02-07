@@ -87,9 +87,9 @@ const unsubscribe  = firebase.auth().onAuthStateChanged((user) => {
         const curloc = window.location.href
         // console.log(curloc)
         // teacher funtions 
-        var url = 'http://127.0.0.1:5500/public/name.html';
-        var url1 = 'http://127.0.0.1:5500/public/student.html';
-        var url2 = 'http://127.0.0.1:5500/public/main.html';
+        // var url = 'http://127.0.0.1:5500/public/name.html';
+        // var url1 = 'http://127.0.0.1:5500/public/student.html';
+        // var url2 = 'http://127.0.0.1:5500/public/main.html';
         
         var url = 'https://nikhilbbhoir.github.io/Appointment_management_system/name.html';
         var url1 = 'https://nikhilbbhoir.github.io/Appointment_management_system/student.html';
