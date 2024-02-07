@@ -94,8 +94,10 @@ const unsubscribe  = firebase.auth().onAuthStateChanged((user) => {
         var url = 'https://nikhilbbhoir.github.io/Appointment_management_system/name.html';
         var url1 = 'https://nikhilbbhoir.github.io/Appointment_management_system/student.html';
         var url2 = 'https://nikhilbbhoir.github.io/Appointment_management_system/index.html';
+
+         var userName = firebase.auth().currentUser.displayName;
         
-        if (curloc == url) {
+        if (curloc == url && userName == 'teacher') {
   // do your work
   // allUserDetails()
   getuserAptsRealtime()
@@ -104,7 +106,7 @@ const unsubscribe  = firebase.auth().onAuthStateChanged((user) => {
   getViewMsgRealtime()
 }
 
-if (curloc == url1) {
+if (curloc == url1 && userName == 'student') {
         // student funtions 
         allTeacherDetails()
         getStudentAllAptsRealtime()
