@@ -392,9 +392,9 @@ async function getReqRealtime(){
                 
                  </tr>
                  `
-           $("td:contains('Approved')").css('backgroundColor', 'green');
-                 $("td:contains('Rejected')").css('backgroundColor', 'red');
-                 $("td:contains('Pending')").css('backgroundColor', 'yellow');
+           $("td:contains('Approved')").css('backgroundColor', 'lightgreen');
+                 $("td:contains('Rejected')").css('backgroundColor', 'lightred');
+                 $("td:contains('Pending')").css('backgroundColor', 'lightyellow');
                  // $("td:contains('undefined')").text('N.A.');
            
                 //  <button class="editApts" onclick="getReq(value)" value="${info.gid}">Reject</button>
@@ -709,9 +709,9 @@ async function getStudentAllAptsRealtime(){
                  <td>${info[st]}</td>
                  </tr>
                  `
-            $("td:contains('Approved')").css('backgroundColor', 'green');
-                 $("td:contains('Rejected')").css('backgroundColor', 'red');
-                 $("td:contains('Pending')").css('backgroundColor', 'yellow');
+            $("td:contains('Approved')").css('backgroundColor', 'lightgreen');
+                 $("td:contains('Rejected')").css('backgroundColor', 'lightred');
+                 $("td:contains('Pending')").css('backgroundColor', 'lightyellow');
                  $("td:contains('undefined')").css('color', 'cadetblue');
                  $("td:contains('undefined')").text('N.A.');
           })
